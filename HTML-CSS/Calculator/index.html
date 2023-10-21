@@ -9,39 +9,86 @@
     <title>Calculator</title>
   </head>
   <body>
-    <div class="calculator">
-      <div class="input" id="input"></div>
-      <div class="buttons">
-        <div class="operators">
-          <div>+</div>
-          <div>-</div>
-          <div>&times;</div>
-          <div>&divide;</div>
-        </div>
-        <div class="leftPanel">
-          <div class="numbers">
-            <div>7</div>
-            <div>8</div>
-            <div>9</div>
-          </div>
-          <div class="numbers">
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-          </div>
-          <div class="numbers">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-          </div>
-          <div class="numbers">
-            <div>0</div>
-            <div>.</div>
-            <div id="clear">C</div>
-          </div>
-        </div>
-        <div class="equal" id="result">=</div>
-      </div>
-    </div>
+    <!-- Table to show calculator -->
+    <table class="calculator">
+      <!-- row to have result display and clear result  -->
+      <tr>
+        <td colspan="3">
+          <input type="text" id="result" />
+        </td>
+
+        <!-- clearResult() function will clear result textbox -->
+        <td>
+          <input
+            type="button"
+            class="clear-button"
+            value="AC"
+            onclick="clearResult()"
+          />
+        </td>
+      </tr>
+
+      <!-- numeric and operator button rows starts  -->
+      <!-- create button and assign value to each button -->
+      <tr>
+        <!-- displayValue("1") will be called -->
+        <td><input type="button" value="9" onclick="displayValue('9')" /></td>
+        <td><input type="button" value="8" onclick="displayValue('8')" /></td>
+        <td><input type="button" value="7" onclick="displayValue('7')" /></td>
+        <td>
+          <input
+            type="button"
+            class="button-operation"
+            value="+"
+            onclick="displayValue('+')"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td><input type="button" value="4" onclick="displayValue('4')" /></td>
+        <td><input type="button" value="5" onclick="displayValue('5')" /></td>
+        <td><input type="button" value="6" onclick="displayValue('6')" /></td>
+        <td>
+          <input
+            type="button"
+            class="button-operation"
+            value="-"
+            onclick="displayValue('-')"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td><input type="button" value="1" onclick="displayValue('1')" /></td>
+        <td><input type="button" value="2" onclick="displayValue('2')" /></td>
+        <td><input type="button" value="3" onclick="displayValue('3')" /></td>
+        <td>
+          <input
+            type="button"
+            class="button-operation"
+            value="/"
+            onclick="displayValue('/')"
+          />
+        </td>
+      </tr>
+
+      <!-- last row  -->
+      <tr>
+        <td><input type="button" value="." onclick="displayValue('.')" /></td>
+        <td><input type="button" value="0" onclick="displayValue('0')" /></td>
+
+        <!-- solve() will evaluate value and display to result -->
+        <td><input type="button" value="=" onclick="solve()" /></td>
+
+        <td>
+          <input
+            type="button"
+            class="button-operation"
+            value="x"
+            onclick="displayValue('*')"
+          />
+        </td>
+      </tr>
+      <!-- numeric and operator button rows ends  -->
+    </table>
   </body>
 </html>
