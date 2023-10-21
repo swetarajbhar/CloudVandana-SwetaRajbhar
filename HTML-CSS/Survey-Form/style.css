@@ -38,7 +38,7 @@ form {
 }
 
 .form-group {
-  width: 48%; /* Adjust the width as needed to fit both fields in one row */
+  width: 48%;
 }
 
 /* Styling form-control & form-inline Label */
@@ -57,7 +57,7 @@ form {
   display: block;
 }
 
-/* Styling form-control input, 
+/* Styling form-control & form-inline input, 
 select, textarea */
 .form-control input,
 .form-control textarea,
@@ -95,7 +95,7 @@ button */
 }
 
 .radio-options input[type="checkbox"] {
-  display: inline-block; /* Hide the default radio input */
+  display: inline-block;
   border: 1px solid #777;
 }
 

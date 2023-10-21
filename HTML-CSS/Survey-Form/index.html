@@ -16,16 +16,38 @@
          $('#form').submit(function (e) {
             if (!$('#female-checkbox').is(':checked') && !$('#male-checkbox').is(':checked')) {
                 alert('Please select gender.');
-                e.preventDefault(); // Prevent form submission
+                e.preventDefault();
             }
          
             var countrySelect = document.getElementById('country');
             if (countrySelect.value === 'None') {
                 alert('Please select a country.');
-                event.preventDefault(); // Prevent form submission
+                event.preventDefault();
             }
          
-         });
+            var formData = {
+                  'First Name': $('#first-name').val(),
+                  'Last Name': $('#last-name').val(),
+                  'Date of Birth': $('#date').val(),
+                  'Country': $('#country').val(),
+                  'Gender': $('input[name="gender-radio"]:checked').val(),
+                  'Profession': $('#profession').val(),
+                  'Email': $('#email').val(),
+                  'Mobile Number': $('#phone').val()
+               };
+
+               var popupContent = '';
+               for (var key in formData) {
+                  popupContent += key + ': ' + formData[key] + '\n';
+               }
+
+               alert(popupContent);
+            });
+
+            $('#reset-button').click(function () {
+               document.getElementById('form').reset();
+            });
+         
          });
       </script>
    </head>
@@ -312,12 +334,12 @@
                <label for="female">
                <input type="checkbox"
                   id="female-checkbox"
-                  name="gender-radio">Female
+                  name="gender-radio" value="Female">Female
                </label>
                <label for="male">
                <input type="checkbox"
                   id="male-checkbox"
-                  name="gender-radio">Male
+                  name="gender-radio" value="Male">Male
                </label>
             </div>
          </div>
@@ -351,10 +373,10 @@
          </div>
          <div class="form-inline">
             <div class="form-group">
-               <button type="submit" value="submit">
+               <button type="submit" value="submit" id="submit-button">
                SUBMIT
                </button>
-               <button type="reset" value="reset">
+               <button type="reset" value="reset" id="reset-button">
                RESET
                </button>
             </div>
